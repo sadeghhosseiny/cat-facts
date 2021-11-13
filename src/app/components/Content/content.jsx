@@ -1,25 +1,22 @@
-import axios from 'axios';
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getCatFacts } from 'store/action/action';
-import { apiReq } from '../../../services/apiReq';
+
 
 export function Content() {
 
   const dispatch = useDispatch();
+  const selector = useSelector(state => state?.facts);
+
   useEffect(() => {
-    // apiReq();
     dispatch(getCatFacts());
-    // axios.get('https://cat-fact.herokuapp.com/facts/random')
-    //   .then(res => console.log('RESSSS', res))
-    //   .catch(err => console.log('ERRRRRRRRR', err));
   }, []);
 
   return (
     <>
+      <p>{selector?.data?.text}</p>
       <button>refresh</button>
     </>
   );
 }
-
 

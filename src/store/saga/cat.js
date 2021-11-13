@@ -6,13 +6,11 @@ import { getCatFacts } from 'store/action/action';
 function* handleCatFacts(action) {
   try {
     const res = yield call(apiReq, action.payload);
-    console.log('this is REEEEEES', res);
-    const { data } = res;
+    const data = res.data;
     yield put({
       type: ACTION_TYPES.CAT_FACTS.SUCCESS,
       payload: data,
     });
-    // yield put(getCatFacts(res.data));
   } catch (err) {
     console.log(err);
   }

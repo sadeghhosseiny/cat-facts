@@ -10,7 +10,7 @@ const initialState = {
 const catReducer = (state = initialState, action = {}) => {
   const { type, payload } = action;
   switch (type) {
-    case ACTION_TYPES.CAT_FACTS.REQUESTING: {
+    case ACTION_TYPES.CAT_FACTS.SUCCESS: {
       return {
         success: true,
         requesting: false,
