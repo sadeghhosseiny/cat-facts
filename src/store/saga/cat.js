@@ -12,7 +12,10 @@ function* handleCatFacts(action) {
       payload: data,
     });
   } catch (err) {
-    console.log(err);
+    yield put({
+      type: ACTION_TYPES.CAT_FACTS.ERROR,
+      payload: err.message,
+    });
   }
 }
 
