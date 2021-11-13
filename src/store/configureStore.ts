@@ -9,8 +9,10 @@ import {
 } from '@reduxjs/toolkit';
 import { createInjectorsEnhancer } from 'redux-injectors';
 import createSagaMiddleware from 'redux-saga';
+import { createStore, applyMiddleware, compose } from 'redux';
 
 import { createReducer } from './reducers';
+import catReducer from './reducers/catReducer';
 
 export function configureAppStore() {
   const reduxSagaMonitorOptions = {};
@@ -36,3 +38,22 @@ export function configureAppStore() {
 
   return store;
 }
+
+// import { createStore, applyMiddleware, compose } from 'redux';
+// import createSagaMiddleware from 'redux-saga';
+// // import { composeWithDevTools } from 'redux-devtools-extension';
+
+// import rootSaga from './saga';
+// import reducer from './reducers/catReducer'
+
+// const sagaMiddleware = createSagaMiddleware();
+
+// export const store = createStore(
+//   reducer,
+//   process.env.NODE_ENV !== 'production' ?
+//     // composeWithDevTools(applyMiddleware(sagaMiddleware)) :
+//     compose(applyMiddleware(sagaMiddleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) :
+//     applyMiddleware(sagaMiddleware)
+// );
+
+// sagaMiddleware.run(rootSaga);
